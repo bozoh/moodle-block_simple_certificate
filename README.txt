@@ -28,7 +28,7 @@ Use git pull to update this branch periodically to ensure you have the latest ve
 
 ==================== Download the simple certificate block. ====================
 
-Visit https://github.com/bozoh/moodle-block_simplecertificate, choose the branch
+Visit https://github.com/bozoh/moodle-block_simple_certificate.git, choose the branch
 that matches your Moodle version (eg. MOODLE_29 is for moodle 2.8)
 and download the zip, uncompress this zip and extract the folder. The folder will have a 
 name similar to bozoh-moodle-block_simple_certificate-c9fbadb, you MUST rename this to simple_certificate. 
