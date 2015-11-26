@@ -85,20 +85,9 @@ Feature: Simple certificate block in a course
       | teacher1 | C1     | editingteacher |
       | student1 | C1     | student        |
     When I log in as "teacher1"
-    And I follow "Course 2"
+    And I follow "Course 1"
     And I turn editing mode on
 	And I add the "Certificates" block
-    And I add a "Simple Certificate" to section "1" and I fill the form with:
-      | Certificate Name | Test Simple Certificate Block 2 |
-      | Certificate Text | Test Simple Certificate Block 2 |
-    And I follow "Test Simple Certificate Block 2"
-    And I follow "Bulk operations"
-    And I select "Send to user's email" from the "Choose a Bulk Operation" singleselect
-    And I press "Send"
-    And I follow "Continue"
-    And I am on homepage 
-    And I follow "Course 1"
-    And I add the "Certificates" block
     And I add a "Simple Certificate" to section "1" and I fill the form with:
       | Certificate Name | Test Simple Certificate Block 1 |
       | Certificate Text | Test Simple Certificate Block 1 |
@@ -107,9 +96,20 @@ Feature: Simple certificate block in a course
     And I select "Send to user's email" from the "Choose a Bulk Operation" singleselect
     And I press "Send"
     And I follow "Continue"
-    And I am on homepage
+	And I follow "My courses"
+    And I follow "Course 2"
+    And I turn editing mode on
+    And I add a "Simple Certificate" to section "1" and I fill the form with:
+      | Certificate Name | Test Simple Certificate Block 2 |
+      | Certificate Text | Test Simple Certificate Block 2 |
+    And I follow "Test Simple Certificate Block 2"
+    And I follow "Bulk operations"
+    And I select "Send to user's email" from the "Choose a Bulk Operation" singleselect
+    And I press "Send"
+    And I follow "Continue"
+	And I follow "My courses"
     And I follow "Course 4"
-    And I add the "Certificates" block
+    And I turn editing mode on
     And I add a "Simple Certificate" to section "1" and I fill the form with:
       | Certificate Name | Test Simple Certificate Block 4 |
       | Certificate Text | Test Simple Certificate Block 4 |
