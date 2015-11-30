@@ -8,51 +8,50 @@
 //
 // Moodle is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+// along with Moodle. If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Form for editing simple_certificate block instances.
- *
- * @package    block_simple_certificate
- * @author	   Carlos Alexandre S. da Fonseca
- * @copyright  2015 - Carlos Alexandre S. da Fonseca
- * @copyright  2015 - Lesterhuis Training & Consultancy (thanks for support it)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
+ * 
+ * @package block_simple_certificate
+ * @author Carlos Alexandre S. da Fonseca
+ * @copyright 2015 - Carlos Alexandre S. da Fonseca
+ * @copyright 2015 - Lesterhuis Training & Consultancy (thanks for support it)
+ * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
  */
 
 defined('MOODLE_INTERNAL') || die();
+
 class block_simple_certificate extends block_base {
     
     private $certs;
 
-    function init() {
+    public function init() {
         $this->title = get_string('configtitle', 'block_simple_certificate');
     }
 
-    function has_config() {
+    public function has_config() {
         return true;
     }
 
-    function applicable_formats() {
+    public function applicable_formats() {
         return array('all' => true);
     }
 
-
-    function instance_allow_multiple() {
+    public function instance_allow_multiple() {
         return false;
     }
 
-    
     /**
      * Get certificates of an user, if numcertsshow config attributes is set and all = false
      * return only numcertsshow first certificates.
      * If courseid is not null, only returns certificate from that course
-     *
-     * @param mixed $userid  user id or user object
+     * 
+     * @param mixed $userid user id or user object
      * @param mixed $courseid course id or course object, only returns certificate from that course default null
      * @return List with all users valid certificates
      */
@@ -75,23 +74,25 @@ class block_simple_certificate extends block_base {
         $certs = null;
         
         if (!empty($courseid)) {
-            // make a join with simplecertificate table, withi courseid column
-            $certs = $DB->get_records_sql('SELECT sci.* FROM {simplecertificate_issues} sci INNER JOIN {simplecertificate} sc
+            // Make a join with simplecertificate table, withi courseid column
+            $certs = $DB->get_records_sql(
+                                        'SELECT sci.* FROM {simplecertificate_issues} sci INNER JOIN {simplecertificate} sc
                         ON sc.id=sci.certificateid WHERE sci.timedeleted IS NULL 
-                        AND sci.userid = ? AND sc.course = ? ORDER BY sci.timecreated', array($userid, $courseid));
+                        AND sci.userid = ? AND sc.course = ? ORDER BY sci.timecreated', 
+                                        array($userid, $courseid));
         
         } else {
-            // no courseid specified
-            $certs = $DB->get_records_sql('SELECT sci.* FROM {simplecertificate_issues} sci INNER JOIN {simplecertificate} sc
+            // No courseid specified
+            $certs = $DB->get_records_sql(
+                                        'SELECT sci.* FROM {simplecertificate_issues} sci INNER JOIN {simplecertificate} sc
                         ON sc.id=sci.certificateid INNER JOIN {course} c ON sc.course=c.id WHERE sci.timedeleted IS NULL
-                        AND sci.userid = ? ORDER BY c.fullname, sci.timecreated', array($userid, $courseid));
-            
-            
-            
+                        AND sci.userid = ? ORDER BY c.fullname, sci.timecreated', 
+                                        array($userid, $courseid));
+        
         }
         return $certs;
     }
-  
+
     function get_content() {
         global $CFG, $USER, $COURSE;
         
@@ -100,17 +101,17 @@ class block_simple_certificate extends block_base {
         }
         
         if (isloggedin() && !isguestuser()) { // Show the block
-            $certs = block_simple_certificate::get_issued_certificates($USER->id, $COURSE->id);
+            $certs = self::get_issued_certificates($USER->id, $COURSE->id);
             $this->content = new stdClass();
             $renderer = $this->page->get_renderer('block_simple_certificate');
-
+            
             if (SITEID === $COURSE->id) {
                 $showcourse = true;
             } else {
                 $showcourse = false;
             }
             
-            $this->content->text = $renderer->simple_certificate_tree($certs, false, $showcourse);
+            $this->content->text = $renderer->block_simple_certificate_tree($certs, false, $showcourse);
             if (!empty($certs)) {
                 $url = new moodle_url("$CFG->wwwroot/blocks/simple_certificate/view.php");
                 $url->param("uid", $USER->id);
@@ -121,16 +122,13 @@ class block_simple_certificate extends block_base {
         return $this->content;
     }
 
-
-
     /**
      * The block should only be dockable when the title of the block is not empty
      * and when parent allows docking.
-     *
+     * 
      * @return bool
      */
     public function instance_can_be_docked() {
         return (!empty($this->config->title) && parent::instance_can_be_docked());
     }
-
 }
