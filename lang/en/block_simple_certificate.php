@@ -8,23 +8,22 @@
 //
 // Moodle is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+// along with Moodle. If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Strings for component 'block_simple_certificate', language 'en'
- *
- * @package    block_simple_certificate
- * @author	   Carlos Alexandre S. da Fonseca
- * @copyright  2015 - Carlos Alexandre S. da Fonseca
- * @copyright  2015 - Lesterhuis Training & Consultancy (thanks for support it)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
+ * 
+ * @package block_simple_certificate
+ * @author Carlos Alexandre S. da Fonseca
+ * @copyright 2015 - Carlos Alexandre S. da Fonseca
+ * @copyright 2015 - Lesterhuis Training & Consultancy (thanks for support it)
+ * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
  */
 
-//TODO  Check Translation
 $string['pluginname'] = 'Simple Certificate';
 $string['configtitle'] = 'Certificates';
 $string['html:addinstance'] = 'Add a new Certificates block';
@@ -35,4 +34,3 @@ $string['numcertsshow'] = 'Number of courses to show';
 $string['numcertsshow_help'] = 'Number of courses, with issued certificates, to show in block, 0 means all';
 $string['mycertificates'] = 'My certificates';
 $string['invalidcourse'] = 'Invalid Course';
-

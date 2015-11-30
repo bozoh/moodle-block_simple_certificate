@@ -26,18 +26,17 @@
 M.block_simple_certificate = {};
 
 M.block_simple_certificate.init_tree = function(Y, expand_all, htmlid) {
-    Y.use('yui2-treeview', function(Y) {
-        var tree = new Y.YUI2.widget.TreeView(htmlid);
+	Y.use('yui2-treeview', function(Y) {
+		var tree = new Y.YUI2.widget.TreeView(htmlid);
 
-        tree.subscribe("clickEvent", function(node, event) {
-            // we want normal clicking which redirects to url
-            return false;
-        });
+		tree.subscribe("clickEvent", function(node, event) {
+			// We want normal clicking which redirects to url
+			return false;
+		});
 
-        if (expand_all) {
-            tree.expandAll();
-        }
-
-        tree.render();
-    });
+		if (expand_all) {
+			tree.expandAll();
+		}
+		tree.render();
+	});
 };
