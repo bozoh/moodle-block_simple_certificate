@@ -26,8 +26,8 @@
 
 $string['pluginname'] = 'Simple Certificate';
 $string['configtitle'] = 'Certificates';
-$string['html:addinstance'] = 'Add a new Certificates block';
-$string['html:myaddinstance'] = 'Add a new Certificates block to Dashboard';
+$string['simple_certificate:addinstance'] = 'Add a new Certificates block';
+$string['simple_certificate:myaddinstance'] = 'Add a new Certificates block to Dashboard';
 $string['allcertificate'] = 'Show all certificates';
 $string['nocertificate'] = 'No avaliable certificates';
 $string['numcertsshow'] = 'Number of courses to show';
