@@ -51,7 +51,7 @@ Feature: Simple certificate block in a course
     And I select "Send to user's email" from the "Choose a Bulk Operation" singleselect
     #And I select "Send to user's email"
     And I press "Send"
-    And I follow "Continue"
+   # And I follow "Continue"
     And I log out
     And I log in as "student1"
     And I follow "Course 1"
@@ -95,7 +95,7 @@ Feature: Simple certificate block in a course
     And I follow "Bulk operations"
     And I select "Send to user's email" from the "Choose a Bulk Operation" singleselect
     And I press "Send"
-    And I follow "Continue"
+   # And I follow "Continue"
     And I am on homepage 
     And I follow "Course 1"
     And I add the "Certificates" block
@@ -106,7 +106,7 @@ Feature: Simple certificate block in a course
     And I follow "Bulk operations"
     And I select "Send to user's email" from the "Choose a Bulk Operation" singleselect
     And I press "Send"
-    And I follow "Continue"
+    #And I follow "Continue"
     And I am on homepage
     And I follow "Course 4"
     And I add the "Certificates" block
@@ -117,7 +117,7 @@ Feature: Simple certificate block in a course
     And I follow "Bulk operations"
     And I select "Send to user's email" from the "Choose a Bulk Operation" singleselect
     And I press "Send"
-    And I follow "Continue"
+    #And I follow "Continue"
     And I log out
     And I log in as "student1"
     And I follow "Course 1"
