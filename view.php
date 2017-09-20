@@ -27,13 +27,10 @@
 require_once ('../../config.php');
 require_once ('../moodleblock.class.php');
 require_once ('block_simple_certificate.php');
-// require('render.php');
 
-// global $DB;
-global $DB, $COURSE, $OUTPUT, $PAGE;
+global $DB, $COURSE, $OUTPUT, $PAGE, $USER;
 
 // Check for all required variables.
-$uid = required_param('uid', PARAM_INT);
 $cid = optional_param('cid', $COURSE->id, PARAM_INT);
 
 if (!$course = $DB->get_record('course', array('id' => $cid))) {
@@ -42,7 +39,7 @@ if (!$course = $DB->get_record('course', array('id' => $cid))) {
 
 require_login($course);
 
-$url = new moodle_url('/blocks/simple_certificate/view.php', array('uid' => $uid));
+$url = new moodle_url('/blocks/simple_certificate/view.php');
 if ($cid !== $COURSE->id) {
     $url->param('cid', $cid);
 }
@@ -57,7 +54,8 @@ $editnode->make_active();
 echo $OUTPUT->header();
 
 // To get all certificates must put courseid null and all=true
-$certificates = block_simple_certificate::get_issued_certificates($uid, NULL);
+//$certificates = block_simple_certificate::get_issued_certificates($uid, NULL);
+$certificates = block_simple_certificate::get_issued_certificates($USER->id, NULL);
 $renderer = $PAGE->get_renderer('block_simple_certificate');
 $content = $renderer->block_simple_certificate_tree($certificates, true, true);
 
