@@ -17,12 +17,16 @@ Feature: Simple certificate block in a course
       | teacher1 | C1     | editingteacher |
       | student1 | C1     | student        |
     When I log in as "teacher1"
-    And I follow "Course 1"
-    And I turn editing mode on
+    #In moodle3.3 it's not more I follow (this constant changes 
+    #makes me sad)
+    #And I follow "Course 1"
+    #And I turn editing mode on
+    And I am on "Course 1" course homepage with editing mode on
     And I add the "Certificates" block
     And I log out
     And I log in as "student1"
-    And I follow "Course 1"
+    #And I follow "Course 1"
+    And I am on "Course 1" course homepage
     And "block_simple_certificate" "block" should exist
     And I should see "No avaliable certificates" in the "Certificates" "block"
   
@@ -40,9 +44,13 @@ Feature: Simple certificate block in a course
       | teacher1 | C1     | editingteacher |
       | student1 | C1     | student        |
     When I log in as "teacher1"
-    And I follow "Course 1"
-    And I turn editing mode on
-	And I add the "Certificates" block
+    #In moodle3.3 it's not more I follow (this constant changes 
+    #makes me sad)
+    #And I follow "Course 1"
+    And I am on "Course 1" course homepage with editing mode on
+    #In moodle 3.3 add block by title not work when javascript is on
+    #And I add the "Certificates" block
+    And I add the "Simple Certificate" block
     And I add a "Simple Certificate" to section "1" and I fill the form with:
       | Certificate Name | Test Simple Certificate Block 1 |
       | Certificate Text | Test Simple Certificate Block 1 |
@@ -54,7 +62,10 @@ Feature: Simple certificate block in a course
    # And I follow "Continue"
     And I log out
     And I log in as "student1"
-    And I follow "Course 1"
+    #In moodle3.3 it's not more I follow (this constant changes 
+    #makes me sad)
+    #And I follow "Course 1"
+    And I am on "Course 1" course homepage
     And I should not see "Course 1" in the "Certificates" "block"
     And I should see "Test Simple Certificate Block 1" in the "Certificates" "block"
     And I log out
@@ -68,37 +79,31 @@ Feature: Simple certificate block in a course
     And the following "courses" exist:
       | fullname | shortname |
       | Course 5 | C5        |
-      | Course 2 | C2        |
-      | Course 3 | C3        |
       | Course 4 | C4        |
+      | Course 3 | C3        |
+      | Course 2 | C2        |
       | Course 1 | C1        |
     And the following "course enrolments" exist:
       | user     | course | role           |
       | teacher1 | C5     | editingteacher |
       | student1 | C5     | student        |
-      | teacher1 | C2     | editingteacher |
-      | student1 | C2     | student        |
-      | teacher1 | C3     | editingteacher |
-      | student1 | C3     | student        |
       | teacher1 | C4     | editingteacher |
       | student1 | C4     | student        |
+      | teacher1 | C3     | editingteacher |
+      | student1 | C3     | student        |
+      | teacher1 | C2     | editingteacher |
+      | student1 | C2     | student        |
       | teacher1 | C1     | editingteacher |
       | student1 | C1     | student        |
     When I log in as "teacher1"
-    And I follow "Course 2"
-    And I turn editing mode on
-	And I add the "Certificates" block
-    And I add a "Simple Certificate" to section "1" and I fill the form with:
-      | Certificate Name | Test Simple Certificate Block 2 |
-      | Certificate Text | Test Simple Certificate Block 2 |
-    And I follow "Test Simple Certificate Block 2"
-    And I follow "Bulk operations"
-    And I select "Send to user's email" from the "Choose a Bulk Operation" singleselect
-    And I press "Send"
-   # And I follow "Continue"
-    And I am on homepage 
-    And I follow "Course 1"
-    And I add the "Certificates" block
+    #In moodle3.3 it's not more I follow (this constant changes 
+    #makes me sad)
+    #And I follow "Course 1"
+    #And I turn editing mode on
+    And I am on "Course 1" course homepage with editing mode on
+	#In moodle 3.3 add block by title not work when javascript is on
+    #And I add the "Certificates" block
+    And I add the "Simple Certificate" block
     And I add a "Simple Certificate" to section "1" and I fill the form with:
       | Certificate Name | Test Simple Certificate Block 1 |
       | Certificate Text | Test Simple Certificate Block 1 |
@@ -106,10 +111,31 @@ Feature: Simple certificate block in a course
     And I follow "Bulk operations"
     And I select "Send to user's email" from the "Choose a Bulk Operation" singleselect
     And I press "Send"
+   # And I follow "Continue"
+    And I am on homepage 
+    #In moodle3.3 it's not more I follow (this constant changes 
+    #makes me sad)
+    #And I follow "Course 2"
+    And I am on "Course 2" course homepage
+    #In moodle 3.3 add block by title not work when javascript is on
+    #And I add the "Certificates" block
+    And I add the "Simple Certificate" block
+    And I add a "Simple Certificate" to section "1" and I fill the form with:
+      | Certificate Name | Test Simple Certificate Block 2 |
+      | Certificate Text | Test Simple Certificate Block 2 |
+    And I follow "Test Simple Certificate Block 2"
+    And I follow "Bulk operations"
+    And I select "Send to user's email" from the "Choose a Bulk Operation" singleselect
+    And I press "Send"
     #And I follow "Continue"
     And I am on homepage
-    And I follow "Course 4"
-    And I add the "Certificates" block
+    #In moodle3.3 it's not more I follow (this constant changes 
+    #makes me sad)
+    #And I follow "Course 4"
+    And I am on "Course 4" course homepage
+    #In moodle 3.3 add block by title not work when javascript is on
+    #And I add the "Certificates" block
+    And I add the "Simple Certificate" block
     And I add a "Simple Certificate" to section "1" and I fill the form with:
       | Certificate Name | Test Simple Certificate Block 4 |
       | Certificate Text | Test Simple Certificate Block 4 |
@@ -120,7 +146,10 @@ Feature: Simple certificate block in a course
     #And I follow "Continue"
     And I log out
     And I log in as "student1"
-    And I follow "Course 1"
+    #In moodle3.3 it's not more I follow (this constant changes 
+    #makes me sad)
+    #And I follow "Course 1"
+    And I am on "Course 1" course homepage
     And I should not see "Course 1" in the "Certificates" "block"
     And I should see "Test Simple Certificate Block 1" in the "Certificates" "block"
     And I follow "Show all certificates"
