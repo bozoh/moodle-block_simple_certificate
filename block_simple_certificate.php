@@ -114,7 +114,6 @@ class block_simple_certificate extends block_base {
             $this->content->text = $renderer->block_simple_certificate_tree($certs, false, $showcourse);
             if (!empty($certs)) {
                 $url = new moodle_url("$CFG->wwwroot/blocks/simple_certificate/view.php");
-                $url->param("uid", $USER->id);
                 $url->param("cid", $COURSE->id);
                 $this->content->footer = html_writer::link($url, get_string('allcertificate', 'block_simple_certificate'));
             }

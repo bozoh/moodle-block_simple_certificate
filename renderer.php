@@ -92,8 +92,8 @@ class block_simple_certificate_renderer extends plugin_renderer_base {
                 
                 if ($fs->file_exists_by_hash($cert->pathnamehash)) {
                     $url = new moodle_url("$CFG->wwwroot/mod/simplecertificate/wmsendfile.php");
-                    $url->param("id", $cert->id);
-                    $url->param("sk", sesskey());
+                    $url->param("code", $cert->code);
+                    #$url->param("sk", sesskey());
                     $result .= '<li yuiConfig=\'' . json_encode($yuiconfig) . '\'><div>' . html_writer::link($url, $image .
                      $certname) . '</div></li>';
                 } else {

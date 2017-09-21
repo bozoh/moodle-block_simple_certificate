@@ -196,8 +196,8 @@ Feature: Simple certificate block in a course
     #makes me sad)
     #And I follow "Course 1"
     And I am on "Course 1" course homepage
-    And I click on "Test Simple Certificate Block 1" "link" in the "Certificates" "block"
-    And I should see a pop-up window
+    Then I click on "Test Simple Certificate Block 1" "link" in the "Certificates" "block"
+    
       
     
     
