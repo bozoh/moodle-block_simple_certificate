@@ -160,9 +160,44 @@ Feature: Simple certificate block in a course
     And I should not see "Course 5"
     And I log out
 
-    
-    
-      
+	@javascript
+  	Scenario: Get the certificate file from block link
+    Given the following "users" exist:
+      | username | firstname | lastname | email            |
+      | teacher1 | Terry1    | Teacher1 | teacher@example.com  |
+      | student1 | Sam1      | Student1 | student1@example.com |
+    And the following "courses" exist:
+      | fullname | shortname |
+      | Course 1 | C1        |
+    And the following "course enrolments" exist:
+      | user     | course | role           |
+      | teacher1 | C1     | editingteacher |
+      | student1 | C1     | student        |
+    When I log in as "teacher1"
+    #In moodle3.3 it's not more I follow (this constant changes 
+    #makes me sad)
+    #And I follow "Course 1"
+    And I am on "Course 1" course homepage with editing mode on
+    #In moodle 3.3 add block by title not work when javascript is on
+    #And I add the "Certificates" block
+    And I add the "Simple Certificate" block
+    And I add a "Simple Certificate" to section "1" and I fill the form with:
+      | Certificate Name | Test Simple Certificate Block 1 |
+      | Certificate Text | Test Simple Certificate Block 1 |
+    And I follow "Test Simple Certificate Block 1"
+    And I follow "Bulk operations"
+    And I select "Send to user's email" from the "Choose a Bulk Operation" singleselect
+    #And I select "Send to user's email"
+    And I press "Send"
+   # And I follow "Continue"
+    And I log out
+    And I log in as "student1"
+    #In moodle3.3 it's not more I follow (this constant changes 
+    #makes me sad)
+    #And I follow "Course 1"
+    And I am on "Course 1" course homepage
+    And I click on "Test Simple Certificate Block 1" "link" in the "Certificates" "block"
+    And I should see a pop-up window
       
     
     
