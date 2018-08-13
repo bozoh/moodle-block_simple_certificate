@@ -1,15 +1,22 @@
-QUICK INSTALL
-=============
+# Block Simple Certificate
 
-YOU MUST INSTALL MOD SIMPLE CERTIFICATE BEFORE INSTALL THIS ONE 
-(https://github.com/bozoh/moodle-mod_simplecertificate)
+## Table of Contents
+- [Block Simple Certificate](#block-simple-certificate)
+    - [Table of Contents](#table-of-contents)
+    - [Installation](#installation)
+        - [Most Recommended Method - Git](#most-recommended-method---git)
+        - [Download the simple certificate block](#download-the-simple-certificate-block)
+
+## Installation
+
+**YOU MUST INSTALL MOD SIMPLE CERTIFICATE BEFORE INSTALL THIS ONE** (https://github.com/bozoh/moodle-mod_simplecertificate)
 
 There are two installation methods that are available. Follow one of these, then
 log into your Moodle site as an administrator and visit the notifications page
 to complete the install.
+___
 
-
-==================== MOST RECOMMENDED METHOD - Git ====================
+### Most Recommended Method - Git
 
 If you do not have git installed, please see the below link. Please note, it is
 not necessary to set up the SSH Keys. This is only needed if you are going to
@@ -29,18 +36,16 @@ Once cloned, checkout the branch that is specific to your Moodle version.
 eg, MOODLE_29, master for the last version) 
 
 Use git pull to update this branch periodically to ensure you have the latest version.
+___
 
-
-==================== Download the simple certificate block. ====================
+### Download the simple certificate block
 
 Visit https://github.com/bozoh/moodle-block_simple_certificate.git, choose the branch
 that matches your Moodle version (eg. MOODLE_29 is for moodle 2.9) and download the zip, 
 uncompress this zip and extract the folder. The folder will have a name similar to: 
-bozoh-moodle-block_simple_certificate-c9fbadb, 
+bozoh-moodle-block_simple_certificate-c9fbadb,
 
-you MUST rename this to simple_certificate. Place this in the blocks folder in your moodle
+you **MUST** rename this to simple_certificate. Place this in the blocks folder in your moodle
 directory.
 
-
-Thanks to Lesterhuis Training & Consultancy for support it
-
+>_Special Thanks to Lesterhuis Training & Consultancy for support it_
