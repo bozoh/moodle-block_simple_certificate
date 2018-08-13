@@ -8,17 +8,17 @@
 //
 // Moodle is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle. If not, see <http://www.gnu.org/licenses/>.
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
  * Somo global fuctions
- * 
+ *
  * @package block_simple_certificate
  * @author Carlos Alexandre S. da Fonseca
  * @copyright 2015 - Carlos Alexandre S. da Fonseca
@@ -28,13 +28,14 @@ defined('MOODLE_INTERNAL') || die();
 
 /**
  * A facade to mod simplecertificade function.
- * 
+ *
  * @return bool nothing if file not found, does not return anything if found - just send the file
  */
-function block_simple_certificate_pluginfile($course, $birecord_or_cm, $context, $filearea, $args, $forcedownload, 
-                                            array $options = array()) {
+function block_simple_certificate_pluginfile(
+    $course, $birecordorcm, $context, $filearea, $args, $forcedownload, array $options = array()
+    ) {
     global $CFG;
-    
-    require ($CFG->dirroot . '/mod/simplecertificate/lib.php');
+
+    require($CFG->dirroot . '/mod/simplecertificate/lib.php');
     simplecertificate_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, $options);
-} 
+}
