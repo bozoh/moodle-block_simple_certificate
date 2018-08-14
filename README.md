@@ -1,5 +1,7 @@
 # Block Simple Certificate
 
+[![Build Status](https://travis-ci.org/bozoh/moodle-block_simple_certificate.svg?branch=master)](https://travis-ci.org/bozoh/moodle-block_simple_certificate)
+
 ## Table of Contents
 - [Block Simple Certificate](#block-simple-certificate)
     - [Table of Contents](#table-of-contents)
