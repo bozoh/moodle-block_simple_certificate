@@ -1,4 +1,4 @@
-@block @block_simple_cetificate
+@block @block_simple_certificate
 Feature: Simple certificate block in a course
   In order to have one Simple certificate block blocks in a course
   As a teacher
