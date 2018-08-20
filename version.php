@@ -26,8 +26,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2018081400;        // The current plugin version (Date: YYYYMMDDXX).
-$plugin->requires  = 2018051700;        // Requires this Moodle version.
+$plugin->version   = 2018082000;        // The current plugin version (Date: YYYYMMDDXX).
+$plugin->requires  = 2015041700;        // Requires this Moodle version.
 $plugin->component = 'block_simple_certificate'; // Full name of the plugin (used for diagnostics).
 $plugin->dependencies = array('mod_simplecertificate' => 2015061729);
 $plugin->release  = '1.0.5';       // Human-friendly version name.
